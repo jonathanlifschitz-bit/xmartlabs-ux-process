@@ -157,55 +157,17 @@ Xmartlabs designs comply with **WCAG 2.2 Level AA**, **Google Core Web Vitals**,
 
 ## Design System: XL Tourmaline
 
-Xmartlabs maintains a shared design system called **Tourmaline** used across client projects. When working on any Xmartlabs project:
+Xmartlabs maintains a shared design system called **Tourmaline** used as a starting base across client projects. Each project adapts it to its own visual identity — colors, corner radius, spacing scales, and component styles will vary per product.
 
-- Use Tourmaline as the primary source of truth for components, tokens, and patterns.
-- All components must include all functional states: **default, hover, focus, disabled, checked**.
-- Disabled states are functional, not just visual — they must be coded as disabled, not just styled gray.
-- Focus states must be explicitly designed — a custom outline or glow that is consistent across the system.
-- Minimum target size for all interactive elements: **24×24 CSS pixels** (larger when possible).
+**What stays consistent across all projects:**
 
-### Icon Library
+- All components must include all **functional states**: default, hover, focus, disabled, checked.
+- Disabled states are functional, not just visual — they must be coded as disabled, not simply styled gray.
+- Focus states must be explicitly designed (custom outline, glow, or border) and consistent throughout the system.
+- Minimum touch target size: **24×24 CSS pixels** (aim for 44×44 when possible).
+- Colors must always follow a **semantic token system** — never use raw hex values directly in components. Tokens define roles (primary, danger, surface, etc.) and the specific values per project are defined in the design system setup phase.
+- Feedback colors (success, warning, danger, info) must never be used for decoration — only for their semantic purpose, and always paired with an icon or text label, never color alone.
 - Xmartlabs uses **Lucide Icons** as the standard icon set across projects.
-- Icons are always used at consistent sizes within their context (e.g., 60×60 for hero/illustrative use, 24×24 for inline/UI use).
-
-### Color Token System
-
-Tourmaline uses a **semantic token system** with numbered scales. Every color in the system has a named role — never use raw hex values directly in components.
-
-**Scale convention:** All color scales go from `10` (lightest) to `100` (darkest) in 10-step increments. The "base" value — the canonical tone for that role — is called out explicitly per palette.
-
-#### Core Palettes
-
-| Token Group | Base Shade | Purpose |
-|-------------|-----------|---------|
-| `Primary` | `Primary/50` | Main brand color — used for CTAs, key interactive elements |
-| `Secondary` | `Secondary/50` | Supporting brand color — used for accents and secondary actions |
-| `Text` | `Text/50` | Text colors across the interface |
-| `Surface light` | `Surface light/20` | Backgrounds and surfaces in light mode |
-| `Surface dark` | `Surface dark/50` | Backgrounds and surfaces in dark mode |
-
-Full scale available for each: `/10` through `/100` (Primary, Secondary, Text) or `/10` through `/50` (Surface).
-
-#### Semantic / Accent Palettes
-
-These are **feedback colors** — use them only for their designated semantic purpose, never for decoration.
-
-| Token Group | Base Shade | When to Use |
-|-------------|-----------|-------------|
-| `Success` | `Success/30` | Successful actions, confirmations, congratulation notices |
-| `Warning` | `Warning/30` | Information users need to be concerned or aware of |
-| `Danger` | `Danger/30` | Immediate action required — errors, urgent situations |
-| `Info` | `Info/30` | Important updates and tips to improve the user experience |
-
-Each accent scale runs from `/10` (very light, for backgrounds/tints) to `/50` (darkest, for text on light surfaces).
-
-#### How to Use the Scale
-
-- Use **light shades** (`/10`–`/20`) for background tints, chips, and banners.
-- Use **mid shades** (`/30`–`/50`) for icons, borders, and text within colored contexts.
-- Use **dark shades** (`/60`–`/100`, Primary/Secondary only) for text on light backgrounds or strong visual emphasis.
-- **Never combine Danger color with only color** to signal an error — always pair with an icon or text label (accessibility requirement).
 
 ---
 
@@ -539,7 +501,7 @@ This is the most important sub-stage: it's where the look and feel of the app is
 
 #### 5b — Design System Setup
 
-Once the visual style is validated, work with the dev team to ground it into a structured design system. This includes defining foundations (colors using Tourmaline token structure, typography, grid, spacing, shadows), auditing which components Tourmaline already covers, and identifying what needs to be created. Always align with the dev team on the technical stack before building components — the framework's available components shape what needs to be designed.
+Once the visual style is validated, work with the dev team to structure it into a design system. This means defining the foundations (color tokens, typography, grid, spacing, shadows) specific to this project — each product has its own values. Audit which components Tourmaline already covers and identify what needs to be created or customized. Always align with the dev team on the technical stack before building components — the framework's available components shape what needs to be designed from scratch.
 
 ---
 
