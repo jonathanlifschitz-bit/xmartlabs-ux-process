@@ -539,18 +539,7 @@ This is the most important sub-stage: it's where the look and feel of the app is
 
 #### 5b — Design System Setup
 
-Once the style is validated, ground it into a structured, dev-aligned design system.
-
-**Steps:**
-1. Read the Design System Guide, Design System Checklist, and Design System Foundations docs.
-2. Design the **foundations** of the design system:
-   - Colors (using Tourmaline token structure: Primary, Secondary, Text, Surface, Accent scales)
-   - Typography
-   - Grid system
-   - Spacing
-   - Shadows
-3. Build the **component list** — check which components the base design system (Tourmaline) already has; create the missing ones in Figma.
-4. Understand the **technical stack considerations** with the dev team — component availability in the framework, platform-specific patterns (e.g., React Native multiplatform vs. brand-based design).
+Once the visual style is validated, work with the dev team to ground it into a structured design system. This includes defining foundations (colors using Tourmaline token structure, typography, grid, spacing, shadows), auditing which components Tourmaline already covers, and identifying what needs to be created. Always align with the dev team on the technical stack before building components — the framework's available components shape what needs to be designed.
 
 ---
 
