@@ -171,34 +171,6 @@ Xmartlabs maintains a shared design system called **Tourmaline** used as a start
 
 ---
 
-## Project Example: Redi (Healthcare App)
-
-Redi is a healthcare appointment preparation app built by Xmartlabs. It illustrates how Tourmaline and our process are applied in a real product.
-
-### Layout & Spacing
-- Screen padding: **24px** horizontal margins on all screens.
-- Container width: **345px** content area on a 393px wide screen.
-- Bottom action zones: **80px** height, always anchored to the bottom of the screen.
-- Consistent 48px height for primary action buttons.
-
-### Component Patterns
-- **Button/Primary**: Full-width (345px), 48px height. Used as the main CTA on every screen.
-- **Pagination dots**: 8×8px dots with 16px spacing, centered, 8 columns. Used on onboarding flows.
-- **Icon usage**: Lucide Icons at 60×60 for onboarding illustrations, 24×24 for inline content.
-- **Bottom sheets**: Used for contextual explanations (e.g., "How your data is handled") — overlay with close button (42×42 tap target), icon list layout with icon (24px) + text (309px wide).
-
-### Typography Hierarchy (Redi)
-- **Heading 1**: Full width (345px), ~77px height — used for primary screen headline.
-- **Paragraph**: Full width (345px), variable height — used for supporting body copy.
-- Heading and paragraph are grouped in a `Frame 62` container with 101px gap between them.
-
-### UX Patterns Observed
-- **Onboarding flow**: 3 value-prop screens + 1 authentication screen. Each screen has: icon → heading → paragraph → CTA button → pagination dots.
-- **Trust messaging**: Privacy information is surfaced proactively (e.g., "Your data is secure. How?" with inline link, HIPAA compliance callout in bottom sheet).
-- **Authentication**: Google + Apple sign-in options. Clear data usage explanation before asking for auth. Users told upfront they can delete data anytime.
-- **Tone**: Warm, reassuring, direct. Avoids medical jargon in onboarding copy.
-
----
 
 ## The Xmartlabs Service
 
