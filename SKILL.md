@@ -1,7 +1,7 @@
 ---
 name: xmartlabs-ux-process
 description: >
-  Xmartlabs internal UX/UI process, standards, and accessibility guidelines. Use this skill when onboarding new designers at Xmartlabs, when reviewing or creating designs for any Xmartlabs project, when someone asks how the design team works, what tools they use, how handoffs are done, or how accessibility is applied. Also trigger when someone asks about Xmartlabs design system (Tourmaline), design tokens, component standards, or collaboration with developers. Use this as the authoritative reference for how design is done at Xmartlabs.
+  Xmartlabs internal UX/UI process and standards. Use this skill when onboarding new designers at Xmartlabs, when reviewing or creating designs for any Xmartlabs project, when someone asks how the design team works, what tools they use, how handoffs are done, or how the design process is structured. Also trigger when someone asks about Xmartlabs design system (Tourmaline), design tokens, component standards, or collaboration with developers. Use this as the authoritative reference for how design is done at Xmartlabs. For detailed accessibility checklists and WCAG compliance, use the accessibility-xl skill instead.
 ---
 
 # Xmartlabs UX/UI Process & Standards
@@ -25,133 +25,17 @@ This document captures how the Xmartlabs design team works: our process, tools, 
 
 ## Accessibility Standards
 
-Xmartlabs designs comply with **WCAG 2.2 Level AA**, **Google Core Web Vitals**, and UX/UI best practices. The goal is to make products usable by as many people as possible while also improving SEO as a side result.
+Xmartlabs designs comply with **WCAG 2.2 Level AA**, **Google Core Web Vitals**, and UX/UI best practices. The complete accessibility checklist — covering color contrast, alt text, UX writing, keyboard interactions, media assets, cognitive accessibility, and design system requirements — is maintained in the **`accessibility-xl` skill**.
 
-### Color & Contrast
+When reviewing any design for accessibility compliance, load the `accessibility-xl` skill for the full procedure and checklist.
 
-- All text and images of text must have a contrast ratio of at least **4.5:1** (3:1 for large-scale text).
-- UI components and graphical objects (borders, radio buttons, checkboxes) require at least **3:1** contrast against adjacent colors, or use a divider line.
-- **Disabled inputs and buttons are exempt** from contrast requirements.
-- Never use color as the **only** visual means of conveying information. Always combine with:
-  - Icons to supplement colors
-  - Explicit text labels (e.g., "Error")
-  - A second differentiator for links (underline or bold) + minimum 3:1 contrast against body text
-  - Textures and tooltips for data visualization (charts, graphs)
-  - Varying thicknesses and stroke patterns for line charts (solid, dashed, dotted)
-- Error messages for inputs must include an **additional visual element** such as an icon.
-- Verify contrast in all supported display modes (**Light and Dark**).
-
-### Text Alternatives (Images & Icons)
-
-| Image Type | Rule |
-|-----------|------|
-| **Decorative** (no info, no task) | `alt=""` — empty alt attribute |
-| **Functional** (button/link with icon) | Describe the action, not the visual: "Go to home" not "Instagram Logo". Use `alt=""` if label text is immediately next to the icon |
-| **Simple Informative** (<150 chars description) | Short caption |
-| **Complex Informative** (charts, mind maps, heatmaps) | Long description; state essentials briefly at the beginning |
-
-**Best practices for alt text writing:**
-- Be concise and clear
-- Don't start with "Image of…" (screen readers already announce it)
-- End with a period so the screen reader pauses
-- Avoid SEO-only keywords that lack meaning for users
-- Include only information relevant to the user experience — create a listening experience, not a visual one
-- Avoid naming colors unless contextually relevant
-- Don't reuse the same alt text without considering context
-- Don't use abbreviations or technical vocabulary
-- Add as many language versions as supported by the page
-- Consider if the content can be converted to HTML text to eliminate the image
-
-### UX Writing for Accessibility
-
-- Use **plain language** — avoid figures of speech, idioms, jargon, and metaphors (cognitive accessibility).
-- Avoid sensory or spatial references: don't say "the round button" or "on the right" — these break on mobile and are inaccessible to screen reader users.
-- Use action verbs: **"Go to", "Navigate", "Select"** instead of "See", "Watch", "Look at".
-  - Replace "See / Look at / View" → "Refer to / Access / Explore"
-  - Replace "Watch" → "Play / Consume"
-  - Replace "Listen to" → "Review / Access"
-- Use **consistent labels** for components with the same function across pages.
-- Use **descriptive page titles and headings** that help users understand their location.
-- Optimize headings for users, not search engines: "Experienced & professional experts for you" not "Our team".
-- Link text must describe what will happen: "Contact us" not "See more" or "Learn more".
-- Provide labels or instructions when content requires user input.
-- Button labels must explicitly state the action result: "Buy Now" triggers a purchase, not a form.
-- Offer **specific suggestions** for fixing detected input errors.
-
-### Layout & Orientation
-
-- Don't restrict content to only portrait or landscape unless essential.
-- Text must be resizable up to **200%** without loss of content or functionality.
-- Content must reflow at **400% zoom** without two-dimensional scrolling on small screens.
-- Use only **one `<h1>` per page** for the main topic.
-- Heading elements must follow a **logical descending sequence** (never skip levels, e.g., `<h4>` before `<h3>`).
-
-### Media Assets
-
-| Type | Captions | Audio Description | Transcript | Sign Language |
-|------|----------|------------------|------------|---------------|
-| Audio-only (podcasts) | N/A | N/A | ✅ Required | Optional |
-| Video-only (silent) | N/A | ✅ Required | ✅ Required | Optional |
-| Synchronized (video + audio) | ✅ Required | ✅ Required | Required for AAA | Required for AAA |
-
-- Subtitles are required only when dialog is in a different language than the page.
-- Apply these rules to **user-uploaded content** as well.
-
-### Visual Stability & Performance
-
-- Use predefined placeholders with `height` and `width` set to prevent Cumulative Layout Shift (CLS).
-- Upload images in **.webp or AVIF** format for best web-optimized compression.
-- Compress images before uploading — don't rely on browser-side processing.
-- Use **SVG** for icons and simple graphics to minimize file weight and increase rendering speed.
-
-### Interactions & Keyboard
-
-- Elements receiving keyboard focus must remain **fully visible** — the page must scroll to keep focused items in the clear viewable area (not hidden by sticky headers/footers).
-- Allow users to **review, confirm, and correct** information before completing legal or financial transactions.
-- Any complex pointer gesture (drag, swipe) must also work with a **single click or tap** (e.g., carousels must have next/back buttons).
-- Provide a way to operate **motion-triggered features** via standard UI components (buttons).
-
-### Design System Requirements for Accessibility
-
-- **Minimum target size** for pointer inputs: **24×24 CSS pixels**.
-- Design a **custom focus state** (border, outline, or glow) for every interactive component — or ensure the default browser focus state is used.
-- Clearly define **all component states**: default, hover, focus, disabled, checked.
-  - Don't just change color to gray for disabled — ensure "Disabled" is a functional part of the component's logic.
-- **Input fields:**
-  - Use standard labels for common data (name, email, address) to enable autofill.
-  - Provide clear instructions and format examples (e.g., DD/MM/YYYY).
-  - Identify required fields with the word "required" or an asterisk (*).
-  - Auto-populate or suggest previously entered information in later steps.
-
-### User Customization
-
-- Allow users to turn off or extend session timeouts by **at least 10× the default limit**.
-- Provide a way to turn off or reconfigure **single-character keyboard shortcuts**.
-- Provide a mechanism to **pause and resume auto-updating content**.
-- Allow users to **disable motion actuation** to prevent accidental triggers.
-
-### Cognitive Accessibility
-
-- Use **left-aligned text** for LTR languages and right-aligned for RTL.
-- Place help and support features in the **same relative location** across all pages.
-- Login processes must not rely on cognitive tests (puzzles, maths) — allow password managers, copy-paste, and biometrics.
-- Ensure **"Back" and "Undo"** functions are always available.
-- **Limit navigation choices** in a single view to prevent distraction.
-- Avoid presenting too much content at once — use steppers or progress bars for complex flows.
-
----
-
-## Glossary
-
-| Term | Definition |
-|------|-----------|
-| **Alt Text** | Brief text description in HTML assigned to an image or non-text element for screen reader users |
-| **Audio Description** | Secondary narration track describing visual details during natural pauses for blind/low-vision users |
-| **Captions** | On-screen text synchronized with video providing equivalent for all audible information (dialogue + sound effects), in the same language as the audio |
-| **CLS (Cumulative Layout Shift)** | Google metric measuring unexpected content shifting during page load |
-| **Sign Language** | Visual-gestural language providing accessible version of spoken audio |
-| **Subtitles** | On-screen text translating spoken dialogue into another language (only required when dialog differs from page language) |
-| **Transcript** | Text-based version of audio or video content for users to read at their own pace |
+**Quick reference — key non-negotiables in every design:**
+- Text contrast: minimum **4.5:1** (3:1 for large text and UI components)
+- Never use color as the only way to convey information — always pair with an icon or text label
+- All interactive components must have **default, hover, focus, disabled, and checked** states defined
+- Minimum touch target: **24×24 CSS pixels**
+- All images must have appropriate alt text (or `alt=""` for decorative)
+- Test in both **Light and Dark** mode
 
 ---
 
@@ -595,9 +479,9 @@ After the first release, projects enter continuous development. The cadence:
 
 When a new designer joins Xmartlabs or when reviewing a design:
 
-1. **Accessibility first** — run through the WCAG 2.2 AA checklist before finalizing any design.
-2. **Use the right tools** — Figma with the WCAG Contrast plugin, Color Blind Simulator, and Low Vision Simulator before handoff.
-3. **Write for everyone** — apply the UX writing rules: plain language, action verbs, no sensory references, consistent labels.
-4. **Design system compliance** — every component must be in Tourmaline or follow its patterns; all states must be defined.
-5. **Performance matters** — use WebP/AVIF, SVGs, and sized placeholders from day one.
-6. **Test in all modes** — verify designs in Light/Dark mode, at 200% and 400% zoom, and with a screen reader.
+1. **Follow the process** — every project goes through the 8 stages: Discovery → Research → UX Design → Branding → UI Design → Handoff → Support → Evolution.
+2. **Design system compliance** — every component must be in Tourmaline or follow its patterns; all states (default, hover, focus, disabled, checked) must be defined.
+3. **Accessibility** — use the `accessibility-xl` skill for the full WCAG 2.2 AA checklist before finalizing any design.
+4. **Handoff completeness** — don't leave edge cases, empty states, or animations for devs to improvise. Define them in Figma before handoff.
+5. **QA collaboration** — involve QA from design review through prototype validation. Use the 5-step QA ↔ Designer workflow.
+6. **Lean mindset** — scope is flexible, timeline and objective are fixed. Think about what the product should *not* do.
